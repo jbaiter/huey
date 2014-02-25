@@ -28,6 +28,7 @@ class HueyBackendTestCase(unittest.TestCase):
             if not q:
                 continue
             queue = q('test')
+            queue.flush()
             queue.write('a')
             queue.write('b')
             self.assertEqual(len(queue), 2)
