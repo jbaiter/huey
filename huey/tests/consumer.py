@@ -133,7 +133,7 @@ class ConsumerTestCase(unittest.TestCase):
         self.assertFalse('k' in state)
 
         res = modify_state('k', 'v')
-        res.get(blocking=True)
+        res.get(blocking=True, timeout=10.0)
 
         self.assertTrue('k' in state)
         self.assertEqual(res.get(), 'v')
